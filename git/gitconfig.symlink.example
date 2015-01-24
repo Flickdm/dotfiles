@@ -14,7 +14,7 @@
         wtf     = !$ZSH/bin/git-wtf
         rank-contributors = !$ZSH/bin/git-rank-contributors
         count   = !git shortlog -sn
-[[color]
+[color]
 
         # Use colors in Git commands that are capable of colored output when
         # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
@@ -56,7 +56,7 @@
 
 [difftool]
         prompt = false
-        
+
 [push]
         # See `git help config` (search for push.default)
         # for more information on different options of the below setting.

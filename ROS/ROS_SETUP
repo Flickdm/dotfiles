@@ -1,11 +1,15 @@
 #!/bin/bash
 
-sudo -v
+clear
 
+echo "Installing ros-indigo-desktop-full"
+
+# Ask for permission first
+sudo -v
 
 # upgrade machine
 sudo apt-get update
-sudo apt-get dist-upgrade
+sudo apt-get --assume-yes dist-upgrade
 
 # Setup sources.list
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu trusty main" > /etc/apt/sources.list.d/ros-latest.list'
@@ -17,7 +21,7 @@ wget https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -O - | sudo 
 sudo apt-get update
 
 # Install desktop
-sudo apt-get install -y ros-indigo-desktop-full
+sudo apt-get install -assume-yes ros-indigo-desktop-full
 
 #initialize rosdep
 sudo rosdep init
@@ -28,4 +32,25 @@ echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 
 # Get Rosinstall
-sudo apt-get install -y python-rosinstall
+sudo apt-get install --assume-yes python-rosinstall
+
+clear
+
+echo "Setting up Catking Workspace"
+
+# Prerequisistes
+source /opt/ros/hydro/setup.bash
+
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/src
+catkin_init_workspace
+
+cd ~/catkin_ws/
+catkin_make
+
+source devel/setup.bash
+
+echo $ROS_PACKAGE_PATH /home/youruser/catkin_ws/src:/opt/ros/indigo/share:/opt/ros/indigo/stacks
+
+cd ~/catkin_ws
+catkin_make

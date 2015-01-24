@@ -1,27 +1,26 @@
-#!usr/bin/env bash
+#!/bin/bash
 
 sudo -v
 
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # upgrade machine
-apt-get update
-apt-get dist-upgrade
+sudo apt-get update
+sudo apt-get dist-upgrade
 
 # Setup sources.list
-sh -c 'echo "deb http://packages.ros.org/ros/ubuntu trusty main" > /etc/apt/sources.list.d/ros-latest.list'
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu trusty main" > /etc/apt/sources.list.d/ros-latest.list'
 
 # Set up keys
 wget https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -O - | sudo apt-key add -
 
 # make sure up to date
-apt-get update
+sudo apt-get update
 
 # Install desktop
-apt-get install ros-indigo-desktop-full
+sudo apt-get install -y ros-indigo-desktop-full
 
 #initialize rosdep
-rosdep init
+sudo rosdep init
 rosdep update
 
 #Environment Setup
@@ -29,4 +28,4 @@ echo "source /opt/ros/indigo/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 
 # Get Rosinstall
-apt-get install python-rosinstall
+sudo apt-get install -y python-rosinstall

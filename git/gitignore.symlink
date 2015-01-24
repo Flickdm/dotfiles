@@ -28,7 +28,7 @@
 
 # OS generated files #
 ######################
-.DS_Store8
+.DS_Store*
 tmp
 thumbs.db
 Icon?

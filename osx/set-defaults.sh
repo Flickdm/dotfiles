@@ -3,11 +3,6 @@
 #
 # Run ./set-defaults.sh and good to go
 
-# ask for sudo upfront
-
-# Keep sudo alive
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
 # Disable press-and-hold for key-repeat, set false if you want it true
 defaults write -g ApplePressAndHoldEnabled -bool false
 

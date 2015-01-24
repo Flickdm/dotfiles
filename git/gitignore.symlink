@@ -28,10 +28,14 @@
 
 # OS generated files #
 ######################
-.DS_Store*
+.DS_Store
 tmp
 thumbs.db
 Icon?
+
+# Generated Symlinks #
+######################
+gitconfig.symlink
 
 *~
 *.pyc

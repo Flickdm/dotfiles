@@ -46,6 +46,8 @@ setup_gitconfig () {
 }
 
 
+
+# Links all the files
 link_file () {
   local src=$1 dst=$2
 
@@ -121,6 +123,8 @@ link_file () {
   fi
 }
 
+
+## Rakes files and links all the symlinks to the proper locations
 install_dotfiles () {
   info 'installing dotfiles'
 

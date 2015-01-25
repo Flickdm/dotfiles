@@ -13,6 +13,17 @@ then
 fi
 
 # Install homebrew packages
+
+# Upgrades Vim
+brew install macvim --overide-system-vim
+brew linkapps
+
+brew install mercurial
+brew install vim --with-python --with-ruby --with-perl
+sudo mv /usr/bin/vim /usr/bin/vim72
+
+
+# Basic Packages
 brew install \
 	grc \
 	coreutils \

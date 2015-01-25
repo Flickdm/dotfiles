@@ -28,11 +28,11 @@ brew install \
 	grc \
 	coreutils \
 	spark \
-  caskroom/cask/brew-cask \
-  node \
-  htop \
-  zsh \
-  nmap \
+    caskroom/cask/brew-cask \
+    node \
+    htop \
+    zsh \
+    nmap \
 
 
 brew cask install \

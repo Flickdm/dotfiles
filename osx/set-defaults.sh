@@ -1,4 +1,4 @@
-#!user/bin/env bash
+#! /usr/bin/env bash
 # Sets OSX Defaults to best Defaults
 #
 # Run ./set-defaults.sh and good to go

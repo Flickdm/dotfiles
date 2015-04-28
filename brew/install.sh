@@ -1,6 +1,7 @@
 #!/bin/sh
 #
-#
+#TODO Set up Vim properly
+#TODO combine the for loops into a function
 #
 # This installs some of the common dependencies needed (or at least desired)
 # using Homebrew.
@@ -19,15 +20,9 @@ declare -a caskPackages=(
 	"google-chrome" "iterm2"
 	"spotify" "the-unarchiver")
 
-declare -a npmPackages=(
-	"lodash" "express" "grunt-cli"
-	"phonegap" "nodemon" "bower"
-	"shelljs")
-
 # packages length
 basicPkgsLength=${#basicPackages[@]}
 caskPkgsLength=${#caskPackages[@]}
-npmPkgsLength=${#npmPackages[@]}
 
 # -----------------------------------------------------------------------------
 
@@ -38,9 +33,9 @@ then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 else
 	echo " Updating brew"
-	#brew update
-	#brew doctor
-	#brew upgrade --all
+	brew update
+	brew doctor
+	brew upgrade --all
 fi
 
 
@@ -76,16 +71,4 @@ for (( i = 1; i<${caskPkgsLength}+1; i++)); do
 		echo "Cask package '$pkg' is already installed"
 	fi
 done
-
-# update NPM
-npm -g update
-echo "\n\n Installing NPM packages"
-
-for (( i = 1; i<${npmPkgsLength}+1; i++)); do
-
-	pkg=${npmPackages[$i-1]}
-	echo "Installing NPM package '$pkg'"
-	sudo npm install $pkg -g
-done
-
 exit 0

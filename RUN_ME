@@ -2,11 +2,19 @@
 
 #scripts/bootstrap.sh
 # Sudo upfront
-sudo -v
+if [ "$(id -u)" != "0" ]; then
+	echo "Please run as Sudo"
+	exit 1
+fi
 
 # Keep sudo alive
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-sudo ./brew/install.sh
+# Brew Install
+#sudo ./brew/install.sh
 
+# NPM Install
+#sudo ./npm/install.sh
 
+# Bootstrap Install
+#sudo ./scripts/bootstrap.sh

@@ -29,9 +29,9 @@ fi
 #brew install vim --with-python --with-ruby --with-perl
 #sudo mv /usr/bin/vim /usr/bin/vim72
 
-for (( i = 1; i<${basicPkgsLength}+1; i++)); do
+for (( i = 1; i<${brewPkgsLength}+1; i++)); do
 
-	pkg=${basicPackages[$i-1]}
+	pkg=${brewPackages[$i-1]}
 
 	if !(brew list -1 | grep -q "^${pkg}\$"); then
 		echo "Installing package '$pkg'"

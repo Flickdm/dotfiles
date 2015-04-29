@@ -1,0 +1,202 @@
+" ================================================
+
+" PATHOGEN
+
+"call pathogen#infect()
+execute pathogen#infect()
+"call pathogen#runtime_append_all_bundles()
+" ================================================
+
+set laststatus=2 " hopefully a fix for airline
+
+set nohlsearch
+
+set backspace=indent,eol,start
+
+"autocmd VimEnter * NERDTree
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+Plugin 'L9'
+" Git plugin not hosted on GitHub
+Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Avoid a name conflict with L9
+Plugin 'user/L9', {'name': 'newL9'}
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+set shell=/bin/sh
+
+" ========================/ AIRLINE /=========================
+let g:airline#extensions#tabline#enabled = 1
+
+
+" ============================================================
+" =======================/ Ctrl P /===========================
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
+" ============================================================
+
+"=======================/ HARD MODE / ========================
+" Causes HJKL to stop working along with the arrow keys
+"autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+" ============================================================
+
+"=======================/ NERDTree / =========================
+
+
+nnoremap <CR> :noh<CR><CR>
+" Maps NerdTree to ,ne
+let mapleader = ","
+nmap <leader>ne :NERDTree<cr>
+
+let NERDTreeShowHidden=1
+"=============================================================
+set mouse=nicr
+"=============================================================
+autocmd BufWritePre * :%s/\s\+$//e
+"=============================================================
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
+
+"set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+
+"let g:solarized_termcolors=256
+"colorscheme solarized" awesome colorscheme
+"set background=dark
+
+let g:rehash256 = 256 "original colors
+colorscheme molokai "Fantastic color scheme
+set background=dark
+
+" In order to install more color schemes move the colorscheme.vim file to colors
+" and change the name above
+
+syntax enable " enable syntax processing
+
+set tabstop=4 " number of visual spaces per tab space
+
+set shiftwidth=4 " size of an indent
+"set softtabstop=4 "number of spaces in tab when editing
+
+"set expandtab " tabs are spaces
+
+" tab now becomes a shortcut for inserting four spaces per tab
+
+set number "show line numbers
+
+set showcmd "show command in bottom bar / shows last command entered
+" in the bottom right vim
+
+set cursorline " highlight current line
+
+filetype indent on " load filetupe-specific indent files
+
+" if a /.vim/indent/filetype.vim gets made it will load that specific type
+
+"set wildmenu " visual autcomplete for command menu
+
+set lazyredraw " redraw only when needed
+set ttyfast " Performance boost
+
+set showmatch "highlight matching [{()}]
+
+set incsearch "search as characters are entered
+
+set hlsearch "highlights the matches
+
+" Turn off search highlight
+" Turns off when ,<space>
+nnoremap <leader><space> :nohlsearch<CR>
+
+set foldenable " enable folding
+
+set foldlevelstart=10 "open most folds by default
+
+set foldnestmax=10 "10 nested fold max
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/\.git/*
+
+"space open/closes folds
+nnoremap <space> za
+
+set foldmethod=indent " fold based on indent level
+
+au BufNewFile,BufRead *.handlebars set filetype=html
+
+" Powerline
+set guifont=Inconsolata\ for\ Powerline:h15
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+
+if has("gui_running")
+   let s:uname = system("uname")
+   if s:uname == "Darwin\n"
+      set guifont=Inconsolata\ for\ Powerline:h15
+   endif
+endif
+" =============================================================================
+
+    :nnoremap <F5> :buffers<CR>:buffer<Space>
+
+ " ============================================================================
+ " Backups and swaps
+
+ set backupdir=~/.vim/backups
+ set directory=~/.vim/swaps
+" =============================================================================
+" Save a file as root (,W)
+ noremap <Leader>W :w !sudo tee % > /dev/null<CR>
+
+" Disable arrow keys
+ "let arrowKeyWarn = "You no like hjkl navigation? STOP USING THE CURSOR KEYS! -Rob"
+ "noremap <up> :echo arrowKeyWarn<CR>
+" noremap <down> :echo arrowKeyWarn<CR>
+ "noremap <left> :echo arrowKeyWarn<CR>
+ "noremap <right> :echo arrowKeyWarn<CR>
+ "inoremap <up> <Nop>
+ "inoremap <down> <Nop>
+ "inoremap <left> <Nop>
+ "inoremap <right> <Nop>
+

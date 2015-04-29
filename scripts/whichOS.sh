@@ -11,6 +11,8 @@ case "$OSTYPE" in
 			./../osx/set-defaults.sh
 			# Install brew and or dependencies
 			./../brew/install.sh
+			# Installs npm packages globally
+			sudo ./../npm/install.sh
 			;;
 		*)
 			exit 1

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 #TODO Set up Vim properly
 #TODO combine the for loops into a function
@@ -6,25 +6,7 @@
 # This installs some of the common dependencies needed (or at least desired)
 # using Homebrew.
 
-#--------------------------------- VARIABLES ----------------------------------
-
-# Add brew command line packages here
-declare -a basicPackages=(
-	"htop-osx" "node"
-	"zsh" "nmap" "tig"
-	"grc" "coreutils" "spark"
-	"zsh" "brew-cask")
-
-# Add Brew cask packages here
-declare -a caskPackages=(
-	"google-chrome" "iterm2"
-	"spotify" "the-unarchiver")
-
-# packages length
-basicPkgsLength=${#basicPackages[@]}
-caskPkgsLength=${#caskPackages[@]}
-
-# -----------------------------------------------------------------------------
+source ../packages.sh
 
 # Check for Homebrew
 if test ! $(which brew)

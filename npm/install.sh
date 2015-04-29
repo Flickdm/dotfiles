@@ -1,13 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
 # update NPM
 
-declare -a npmPackages=(
-	"lodash" "express" "grunt-cli"
-	"phonegap" "nodemon" "bower"
-	"shelljs")
-
-npmPkgsLength=${#npmPackages[@]}
+source ../packages.sh
 
 npm -g update
 

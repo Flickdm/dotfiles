@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/bin/bash
 
 case "$OSTYPE" in
 		"linux-gnu")
@@ -6,6 +6,7 @@ case "$OSTYPE" in
 			;;
 		"darwin"*)
 			# OSX detected
+
 			# Set Preferences
 			printf "\t --> Setting defaults"
 			./../osx/set-defaults.sh

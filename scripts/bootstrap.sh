@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #
 # bootstrap installs things.
 cd "$(dirname "$0")/.."
@@ -138,26 +138,11 @@ install_dotfiles () {
 }
 
 # =================/ Main /======================
-clear
-echo "Time to setup your dev machine."
 
-read -p "Are you ready to begin? (y/n) " -n 1;
-echo "";
 
-if [[ $REPLY =~ ^[Nn]$ ]]; then
-  echo "Quiting.."
-  exit 1
-fi
-
-echo "Lets begin."
-# Sudo upfront
-sudo -v
-
-# Keep sudo alive
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-info 'Setting up Git'
+info "Setting up Git\n"
 setup_gitconfig
 
-info "Installing dotfiles"
+info "Installing dotfiles\n"
 install_dotfiles
+

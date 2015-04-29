@@ -21,7 +21,7 @@ npmPkgsLength=${#npmPackages[@]}
 
 # Terminal Applications to be installed through Brew
 
-declare -a basicPackages=(
+declare -a brewPackages=(
 	"htop-osx" "node"
 	"zsh" "nmap" "tig"
 	"grc" "coreutils" "spark"
@@ -33,8 +33,16 @@ declare -a caskPackages=(
 	"google-chrome" "iterm2"
 	"spotify" "the-unarchiver")
 
-basicPkgsLength=${#basicPackages[@]}
+brewPkgsLength=${#brewPackages[@]}
 caskPkgsLength=${#caskPackages[@]}
 
 # -------------------------------- DEBIAN APT -----------------------------------#
+
+declare -a aptPackages=(
+	"zeal" "htop" "node"
+	"zsh" "tig" "nmap"
+	"gparted" "terminator")
+
+aptPkgsLength=${#aptPackages}
+
 # ---------------------------------- VIM ----------------------------------------#

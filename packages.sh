@@ -26,7 +26,7 @@ declare -a brewPackages=(
 	"zsh" "nmap" "tig"
 	"grc" "coreutils" "spark"
 	"zsh" "brew-cask" "git" 
-    "irssi" "cmus")
+    "irssi" "cmus" "macvim")
 
 # GUI Applications to be installed through Brew/Cask
 

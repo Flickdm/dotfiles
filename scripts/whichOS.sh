@@ -3,17 +3,16 @@
 case "$OSTYPE" in
 		"linux-gnu")
 			# Linux Detected
-			;;
+			sudo ./../apt/install.sh  # apt-get install
+            sudo ./../npm/install.sh # npm install
+            sudo ./bootstrap.sh # rake dotfiles
+            ;;
 		"darwin"*)
 			# OSX detected
-
-			# Set Preference
-			printf "\t --> Setting defaults"
-			./../osx/set-defaults.sh
-			# Install brew and or dependencies
-			./../brew/install.sh
-			# Installs npm packages globally
-			sudo ./../npm/install.sh
+			./../OS/setOSXDefaults.sh # Sensible Defaults
+			./../brew/install.sh # Brew install
+			sudo ./../npm/install.sh # npm install
+            sudo ./bootstrap.sh # rake dotfiles
 			;;
 		*)
 			exit 1

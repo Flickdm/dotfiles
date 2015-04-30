@@ -25,7 +25,8 @@ declare -a brewPackages=(
 	"htop-osx" "node"
 	"zsh" "nmap" "tig"
 	"grc" "coreutils" "spark"
-	"zsh" "brew-cask" "git")
+	"zsh" "brew-cask" "git" 
+    "irssi" "cmus")
 
 # GUI Applications to be installed through Brew/Cask
 
@@ -41,7 +42,9 @@ caskPkgsLength=${#caskPackages[@]}
 declare -a aptPackages=(
 	"zeal" "htop" "node"
 	"zsh" "tig" "nmap"
-	"gparted" "terminator" "git")
+	"gparted" "terminator" "git"
+    "linux-headers-$(uname -r) build-essential" 
+    "cmus" "irssi" "vim-gnome")
 
 aptPkgsLength=${#aptPackages}
 

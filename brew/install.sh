@@ -5,9 +5,13 @@
 #
 # This installs some of the common dependencies needed (or at least desired)
 # using Homebrew.
+source helperFunc/returnOS.sh
+source packages.sh
 
-source ../packages.sh
+is_osx || return 1
 
+echo "brew hit!"
+return 1
 # Check for Homebrew
 if test ! $(which brew)
 then
@@ -15,9 +19,8 @@ then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 else
 	echo " Updating brew"
-	brew update
-	brew doctor
-	brew upgrade --all
+	#brew update
+	#brew upgrade --all
 fi
 
 
@@ -53,4 +56,11 @@ for (( i = 1; i<${caskPkgsLength}+1; i++)); do
 		echo "Cask package '$pkg' is already installed"
 	fi
 done
-exit 0
+
+# Htop
+
+if [[ "$(type -P $binroot/htop)" ]] && [[ "$(stat -L -f "%Su:%Sg" "$binroot/htop")" != "root:wheel" || ! "$(($(stat -L -f "%DMp" "$binroot/htop") & 4))" ]]; then
+    echo "Updating htop permissions"
+    sudo chown root:wheel "$binroot/htop"
+    sudo chmod u+s "$binroot/htop"
+fi

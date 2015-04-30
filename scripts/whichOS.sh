@@ -3,6 +3,7 @@
 case "$OSTYPE" in
 		"linux-gnu")
 			# Linux Detected
+
 			sudo ./../apt/install.sh  # apt-get install
             sudo ./../npm/install.sh # npm install
             sudo ./bootstrap.sh # rake dotfiles

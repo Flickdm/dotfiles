@@ -48,4 +48,23 @@ declare -a aptPackages=(
 
 aptPkgsLength=${#aptPackages}
 
-# ---------------------------------- VIM ----------------------------------------#
+# ---------------------------------- VIM -----------------------------------------#
+
+# ---------------------------------- CTF TOOLS -----------------------------------#
+declare -a ctfPackages=(
+    "aircrack-ng" "bfg" "binuntils"
+    "binwalk" "cifer" "dex2jar" 
+    "dns2tcp" "fcrackzip" "foremost"
+    "hashpump" "hydra" "john" "knock"
+    "netpbm" "nmap" "pngcheck" "socat"
+    "sqlmap" "tcpflow" "tcpreplay" "tcptrace"
+    "ucspi-tcp" "xpdf" "xz")
+
+ctfPkgsLength=${#ctfPackages}
+
+###################################################################################
+# ======================= DO NOT CHANGE THESE VARIABLES ===========================
+
+# HANDLES DIRECTORY
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+###################################################################################

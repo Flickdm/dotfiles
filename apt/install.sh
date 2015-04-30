@@ -1,3 +1,4 @@
+#
 #!/bin/bash
 #
 #TODO Set up Vim properly
@@ -5,10 +6,13 @@
 #
 # This installs some of the common dependencies needed (or at least desired)
 # using Homebrew.
+source helperFunc/returnOS.sh
+source packages.sh
 
-source ../packages.sh
+is_ubuntu || return 1
 
-# Check for Homebrew
+echo "apt hit!"
+
 sudo apt-get update --assume-yes
 sudo apt-get dist-upgrade --assume-yes
 
@@ -24,4 +28,5 @@ echo "cleaning up"
 
 sudo apt-get autoclean
 
-exit 0
+#use this to determine if a package exists
+#dpkg -l | grep $pkg | awk '{print $2, $3}'

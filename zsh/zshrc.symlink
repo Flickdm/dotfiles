@@ -113,3 +113,5 @@ bindkey '^b' vi-backward-blank-word
 bindkey '^[b' vi-backward-char
 
 ulimit -S -n 2048
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"

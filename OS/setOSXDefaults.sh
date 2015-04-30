@@ -1,4 +1,9 @@
-#! /usr/bin/env bash
+#! /bin/bash
+
+source ../helperFunc/returnOS.sh
+
+is_osx || return 1
+
 # Sets OSX Defaults to best Defaults
 #
 # Run ./set-defaults.sh and good to go

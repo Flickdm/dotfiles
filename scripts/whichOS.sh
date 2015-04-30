@@ -7,7 +7,7 @@ case "$OSTYPE" in
 		"darwin"*)
 			# OSX detected
 
-			# Set Preferences
+			# Set Preference
 			printf "\t --> Setting defaults"
 			./../osx/set-defaults.sh
 			# Install brew and or dependencies

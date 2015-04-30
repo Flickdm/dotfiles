@@ -3,9 +3,11 @@
 " PATHOGEN
 
 "call pathogen#infect()
-execute pathogen#infect()
+execute pathogen#infect() 
 "call pathogen#runtime_append_all_bundles()
 " ================================================
+
+set mouse=a
 
 set laststatus=2 " hopefully a fix for airline
 
@@ -15,7 +17,7 @@ set backspace=indent,eol,start
 
 "autocmd VimEnter * NERDTree
 
-set nocompatible              " be iMproved, required
+set nocompatible            " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -69,8 +71,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-
 " ============================================================
 
 "=======================/ HARD MODE / ========================
@@ -88,11 +88,9 @@ nmap <leader>ne :NERDTree<cr>
 
 let NERDTreeShowHidden=1
 "=============================================================
-set mouse=nicr
-"=============================================================
-autocmd BufWritePre * :%s/\s\+$//e
-"=============================================================
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+
+
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'                      
 let g:ycm_confirm_extra_conf = 0
 
 "set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -102,7 +100,7 @@ let g:ycm_confirm_extra_conf = 0
 "colorscheme solarized" awesome colorscheme
 "set background=dark
 
-let g:rehash256 = 256 "original colors
+let g:rehash256 = 1 "original colors
 colorscheme molokai "Fantastic color scheme
 set background=dark
 
@@ -113,10 +111,9 @@ syntax enable " enable syntax processing
 
 set tabstop=4 " number of visual spaces per tab space
 
-set shiftwidth=4 " size of an indent
-"set softtabstop=4 "number of spaces in tab when editing
+set softtabstop=4 "number of spaces in tab when editing
 
-"set expandtab " tabs are spaces
+set expandtab " tabs are spaces
 
 " tab now becomes a shortcut for inserting four spaces per tab
 
@@ -134,7 +131,6 @@ filetype indent on " load filetupe-specific indent files
 "set wildmenu " visual autcomplete for command menu
 
 set lazyredraw " redraw only when needed
-set ttyfast " Performance boost
 
 set showmatch "highlight matching [{()}]
 
@@ -144,15 +140,13 @@ set hlsearch "highlights the matches
 
 " Turn off search highlight
 " Turns off when ,<space>
-nnoremap <leader><space> :nohlsearch<CR>
+nnoremap <leader><space> :nohlsearch<CR> 
 
 set foldenable " enable folding
 
 set foldlevelstart=10 "open most folds by default
 
 set foldnestmax=10 "10 nested fold max
-
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/*,*/node_modules/*,*/\.git/*
 
 "space open/closes folds
 nnoremap <space> za
@@ -176,27 +170,3 @@ if has("gui_running")
       set guifont=Inconsolata\ for\ Powerline:h15
    endif
 endif
-" =============================================================================
-
-    :nnoremap <F5> :buffers<CR>:buffer<Space>
-
- " ============================================================================
- " Backups and swaps
-
- set backupdir=~/.vim/backups
- set directory=~/.vim/swaps
-" =============================================================================
-" Save a file as root (,W)
- noremap <Leader>W :w !sudo tee % > /dev/null<CR>
-
-" Disable arrow keys
- "let arrowKeyWarn = "You no like hjkl navigation? STOP USING THE CURSOR KEYS! -Rob"
- "noremap <up> :echo arrowKeyWarn<CR>
-" noremap <down> :echo arrowKeyWarn<CR>
- "noremap <left> :echo arrowKeyWarn<CR>
- "noremap <right> :echo arrowKeyWarn<CR>
- "inoremap <up> <Nop>
- "inoremap <down> <Nop>
- "inoremap <left> <Nop>
- "inoremap <right> <Nop>
-

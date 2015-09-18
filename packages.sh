@@ -6,6 +6,10 @@
 #	if you would like to update/add/remove packages you can do it through here
 #
 # -----------------------------------------------------------------------------#
+# osType will hold to the type of nix* based os
+
+OS=$OSTYPE
+
 # ------------------------------- NPM -----------------------------------------#
 
 # NPM packages to be installed globally

@@ -1,5 +1,7 @@
 #!/bin/bash
 
-source ../helperFunc/returnOS.sh
+source ~/dotfiles/packages.sh
 
-is_ubuntu || return 1
+if [[ $OS == "linux-gnu" ]]; then
+    echo "linux stuff"
+fi

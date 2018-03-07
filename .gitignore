@@ -1,3 +1,7 @@
 gitconfig.symlink
 *.logs
 *backup
+
+*.pyc
+
+__pycache__/

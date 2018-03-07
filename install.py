@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
+# -*- coding: UTF-8 -*-
 
 import sys
 import subprocess
 import platform
-
+import collections as col
 import configparser
 
-from OS.OSFactory import OperatingSystem
+from OSFactory import OperatingSystem
 
 
 def determine_os():
@@ -24,16 +25,24 @@ def parse_config(config_path="./packages.ini"):
     config = configparser.ConfigParser()
     config.read(config_path)
 
+    required_sections = [
+        "Debian", "Ubuntu", "Darwin", "Nix", "All"
+        ]
 
-    debian_packages = config["debian"]["packages"]
+    if col.Counter(required_sections) != col.Counter(config.sections()):
+        print("Config missing Sections")
+        print("Config Must Contain: {}".format(required_sections))
+        sys.exit(1)
 
-    print(debian_packages)
+    return config
 
 
 def main(argv):
 
-    parse_config()
-    #OS = OperatingSystem.factory(determine_os())
+    config = parse_config()
+    OS = OperatingSystem.factory(determine_os(), config)
+    OS.install()
+    OS.install_symlinks()
 
 if __name__ == "__main__":
     main(sys.argv[1:])

@@ -1,0 +1,13 @@
+linux:
+  packages:
+    - htop
+    - vim
+    - git
+  symlinks:
+    - gitconfig.symlink
+    - gitignore.symlink
+ubuntu:
+  packages:
+    - 
+    -
+
